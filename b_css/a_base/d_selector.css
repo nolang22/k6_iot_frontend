@@ -43,7 +43,7 @@ ul {
   : 선택자 종류를 가리지 않음
 */
 
-.secoundary, li {
+.secondary, li {
   font-weight: 900;
   padding: 10px;
 }
