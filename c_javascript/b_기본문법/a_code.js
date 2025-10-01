@@ -24,7 +24,8 @@ for (let i; i < 5; i++) {
 // JS는 세미콜론 없이도 오휴 X
 // : 한 줄에 여러 구문 작성 시 반드시!! 세미콜론으로 구문 분리
 // > 한 줄에 한 구문 사용 권장!!
-console.log('object 1'); console.log('object 2')
+console.log("object 1");
+console.log("object 2");
 
 // 공백 사용 (가독성)
 // : 예약어, 연산자, 값 사이에는 공백 작성
@@ -33,6 +34,6 @@ console.log('object 1'); console.log('object 2')
 //    >> 소괄호와 중괄호 사이의 공백
 // - 등호 양 옆은 공백
 let num1 = 1;
-let num2=2 // (X)
+let num2 = 2; // (X)
 
 // 주석 사용: 남발 X, 필요한 내용만 작성

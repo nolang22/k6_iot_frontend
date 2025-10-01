@@ -1,6 +1,6 @@
 // z_example.js
 
-console.log('node를 사용한 출력');
+console.log("node를 사용한 출력");
 
 // 1) vsc 터미널
 // ctrl _shift `(백틱)
@@ -26,4 +26,4 @@ console.log('node를 사용한 출력');
 //   == 파일 실행 ==
 //   node 파일명.js
 
-console.log('자바스크립트 첫 수업입니다.')
+console.log("자바스크립트 첫 수업입니다.");

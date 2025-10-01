@@ -38,7 +38,7 @@ let varVar2 = 20;
 // 1. 공통점: 재할당 가능(변수의 특성), 호이스팅 O
 
 //? 호이스팅
-//  : 인터프리터(코드를 읽는 기기)가 코드를 실행하기 전 변수, 함수, 클래스 등의 
+//  : 인터프리터(코드를 읽는 기기)가 코드를 실행하기 전 변수, 함수, 클래스 등의
 //      선언문을 해당 범위의 맨 위로 올리는 것
 
 // 2. 차이점
@@ -46,16 +46,16 @@ let varVar2 = 20;
 // - var: 동일한 영역 내에서 재선언 가능, 호이스팅 가능(선언 시 undefined 초기화되어 "접근 가능")
 
 //? TDZ(Temporal Dead Zone): 변수가 선언되고 초기화되기까지의 공간
-// - let은 TDZ에 있을 경우 사용 불가! 
+// - let은 TDZ에 있을 경우 사용 불가!
 // - var는 TDZ의 변수값 사용 가능
 
 // let letVar; - let은 재선언 불가
 var varVar; // var는 재선언 가능
 
 // letVar3 = 30; // 선언 전 초기화
-// console.log(letVar3); 
+// console.log(letVar3);
 // ReferenceError: Cannot access 'letVar3' before initialization
-// >> 호이스팅이 되지만, 실질적인 선언 문장을 읽기 전 호출이 불가! 
+// >> 호이스팅이 되지만, 실질적인 선언 문장을 읽기 전 호출이 불가!
 
 varVar3 = 40;
 console.log(varVar3); // 호이스팅과 TDZ 접근 가능으로 내용값 출력 가능
@@ -70,7 +70,7 @@ let birthYear = 1996;
 let age;
 age = currentYear - birthYear;
 
-console.log(birthYear + '년도에 태어난 사람의 나이는 ' + age + '세입니다.');
+console.log(birthYear + "년도에 태어난 사람의 나이는 " + age + "세입니다.");
 
 //* 상수(constant)
 // : 변하지 않는 수, 한 번 할당된 값 변경 X (재할당 불가)

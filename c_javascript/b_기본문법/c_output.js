@@ -9,24 +9,24 @@
 // 1) 알림창 출력 (alert: 알리다, 경고하다)
 // : 소괄호 안의 따옴표에 출력할 메시지 입력
 // - [확인] 버튼 클릭 시 사라짐
-alert('Hello Javascript');
-alert('알림 창 출력하기');
+alert("Hello Javascript");
+alert("알림 창 출력하기");
 
 // 2) 확인창 출력 (confirm: 확인하다)
 // : [확인] | [취소] 버튼 중 사용자가 직접 클릭
 // - 해당 결과(동작)에 따라 로직 설계 가능
-confirm('로그인 하시겠습니까?')
+confirm("로그인 하시겠습니까?");
 
 // 3) 프롬프트창 입출력 (prompt: 즉각적인)
 // - 첫 번째 인자: 전달 메시지 작성
 // - 두 번째 인자: prompt 창 기본값 (선택)
 
 prompt();
-prompt('이름을 입력하세요');
-prompt('이름을 입력하세요', 'EX: 홍길동');
+prompt("이름을 입력하세요");
+prompt("이름을 입력하세요", "EX: 홍길동");
 
 // +) 사용자가 작성한 입력 내용 활용 가능
-let username = prompt('아이디를 입력하세요');
+let username = prompt("아이디를 입력하세요");
 alert(username);
 
 // 4) 웹 브라우저 화면에 출력
@@ -34,21 +34,21 @@ alert(username);
 
 // document(웹 문서)에서 괄호 안의 내용을 write(표시, 작성)하는 명령문
 // : 괄호 안은 HTML요소, 데이터 자체, 결과값이 저장된 변수 삽입 가능
-document.write('안녕하세요');
-document.write('안녕하세요');
-document.writeln('<h2>문단입니다.</h2>') // ln: line 줄 바꿈
+document.write("안녕하세요");
+document.write("안녕하세요");
+document.writeln("<h2>문단입니다.</h2>"); // ln: line 줄 바꿈
 
-let user = prompt('사용자를 입력해주세요');
-document.writeln(user + '님 반갑습니다.');
+let user = prompt("사용자를 입력해주세요");
+document.writeln(user + "님 반갑습니다.");
 
-console.log('object');
+console.log("object");
 
 //* 프로그래밍 언어
 // 한글) 나는 너를 사랑해 (주어 목적어 동사)
 // 영어) I love you (주어 동사 목적어)
 
 // 프로그래밍 언어 - 영어의 어순과 동일
-document.write('안녕');
+document.write("안녕");
 // - document: 객체(실행될주체, 주어)
-// - write   : 메서드(동작, 동사) 
+// - write   : 메서드(동작, 동사)
 // - ('안녕') : 매개변수(목적어)
