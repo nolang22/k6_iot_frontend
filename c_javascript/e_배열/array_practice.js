@@ -64,7 +64,6 @@ console.log(findAverage([1, 2, 3, 4, 5])); // 3
 
 function findMax(array) {
   let max = array[0];
-  let maxValue = [];
 
   let length = array.length;
   for (let i = 1; i < length; i++) {
