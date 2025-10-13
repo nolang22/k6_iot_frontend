@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      border-top: none;
+      text-align: center;
+      padding: 5px 20px;
+    }
+    
+    table {
+      border-collapse: collapse;
+      border: none;
+      
+    }
+
+    tr {
+      border-collapse: collapse;
+      border: none;
+      text-align: center;
+      padding: 0 20px ;
+    } 
+    
+    .th-left { border-left: none; }
+    .th-right { border-right: none; }
+    
+    td {
+      border-top: none;
+      border-bottom: none;
+    }
+    
+    .td-left { border-left: none; }
+    .td-right { border-right: none; }
+
+    .title-header {
+      display: flex;
+      flex-direction: row;
+      align-items: end;
+    
+      padding: 0 30px;
+    }
+
+    .title-user {
+      display: flex;
+      flex-direction: row;
+      padding: 0 30px;
+      
+    }
+
+  </style>
+</head>
+<body>
+  <div class="title-header">
+    <h1>[title]</h1>
+    <p class="title-p">　[discription]</p>
+  </div>
+  <div class="title-user">
+    <span>🍔　　　</span>
+    <span>[role]　　　</span>
+    <span>[name]</span>
+  </div>
+  <div class="title-user">
+    <span>🍟　　　</span>
+    <span>날짜  　 　　</span>
+    <span>[createdAt]</span>
+  </div>
+  <div>
+    <h1>Notification(최신 공지부터)</h1>
+    <div>
+      <ul>
+        <li>
+          <a href="#">[공지명]</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr />
+  <h2>task</h2>
+  <table>
+    <div class="task-header">
+      <tr>
+        <th class="th-left">title</th>
+        <th>assignee</th>
+        <th>priority</th>
+        <th>status</th>
+        <th class="th-right">Tag</th>
+      </tr>
+    </div>
+    <div class="task-item">
+      <tr>
+        <td class="td-left">
+          <input type="checkbox" value="씻기">
+          [씻기]
+        </td>
+        <td>[샛노랑]</td>
+        <td>[LOW]</td>
+        <td>[TODO]</td>
+        <td class="td-right">[#즐거워]</td>
+      </tr>
+    </div>
+    <div class="task-item">
+      <tr>
+        <td class="td-left">
+          <input type="checkbox" value="씻기">
+          [윗몸]
+        </td>
+        <td>[검정]</td>
+        <td>[HIGH]</td>
+        <td>[DONE]</td>
+        <td class="td-right">[#안해]</td>
+      </tr>
+    </div>
+  </table>
+
+
+
+  <!-- <table>
+    <tr>
+      <th class="th-left">title</th>
+      <th>assignee</th>
+      <th>priority</th>
+      <th>status</th>
+      <th class="th-right">Tag</th>
+    </tr>
+    <tr>
+      <td class="td-left">
+          <input type="checkbox" value="씻기">
+        씻기
+      </td>
+      <td>샛노랑</td>
+      <td>LOW</td>
+      <td>TODO</td>
+      <td class="td-right">#즐거워</td>
+    </tr>
+    <tr>
+      <td class="td-left">
+          <input type="checkbox" value="씻기">
+        윗몸
+      </td>
+      <td>검정</td>
+      <td>HIGH</td>
+      <td>DONE</td>
+      <td class="td-right">#안해</td>
+    </tr>
+  </table> -->
+</body>
+</html>
