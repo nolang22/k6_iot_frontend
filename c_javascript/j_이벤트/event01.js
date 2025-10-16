@@ -136,6 +136,8 @@ buttons.forEach(btn => {
   });
 });
 
+//* 내가 합친 것들
+
 //* +) 이벤트 제거하는 방법
 // : removeEventListener() 메서드 사용
 const removeButton = document.querySelector('#remove');
