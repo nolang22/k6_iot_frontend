@@ -138,10 +138,17 @@ function displayTodo() {
   })
 }
 
+// function dispalyWastebasket() {
+//   console.log('== 휴지통 ==');
+//   todos.forEach(todo => {
+//     // 삼항 연산자
+//     console.log(`${todo.id}: ${todo.content} - ${todo.completed ? '완료됨' : '완료되지 않음'}`);
+//   })
+// }
+
 // +) 할 일 복구/비우기 기능 함수
 function restoreTodo(id) {
   const idx = wastebasket.findIndex(waste => waste.id === id);
-
   if (idx === -1) {
     console.log(`휴지통에 id ${id}가 없어요`);
     return;
