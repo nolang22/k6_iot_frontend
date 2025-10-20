@@ -12,7 +12,7 @@
 //* == 이벤트 종류 ==
 
 /*
-? click: 요소를 클릭할 때 발생
+* click: 요소를 클릭할 때 발생
 dblclick: 요소를 더블 클릭할 때 발생
 mousedown: 마우스 버튼을 누를 때 발생
 mouseup: 마우스 버튼을 뗄 때 발생
@@ -23,7 +23,7 @@ mousemove: 마우스가 움직일 때 발생
 
 // 2) 키보드 이벤트
 /*
-? keydown: 키를 누를 때 발생
+* keydown: 키를 누를 때 발생
 keyup: 키를 뗄 때 발생
 keypress: 키를 누르고 있을 때 발생
 */
@@ -131,12 +131,25 @@ buttons.forEach(btn => {
   // HTML요소.addEventListener('이벤트', 콜백함수);
   // > HTML요소에 해당 이벤트가 발생하면 콜백함수를 실행
   btn.addEventListener('click', function() {
+    
     const randomColor = randomColorFunc();
     btn.style.backgroundColor = randomColor;
   });
 });
 
 //* 내가 합친 것들
+
+const bgTextButton = document.querySelector('.bgTextChange');
+
+bgTextButton.onclick = function() {
+  const randomColor = randomColorFunc(); {
+  bgTextButton.style.backgroundColor = randomColor;
+  bgTextButton.style.color = randomColorFunc();
+  }
+}
+
+
+
 
 //* +) 이벤트 제거하는 방법
 // : removeEventListener() 메서드 사용
