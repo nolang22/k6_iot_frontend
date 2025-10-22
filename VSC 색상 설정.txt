@@ -1,0 +1,166 @@
+Developer: Inspect Editor Tokens and Scopes 스코프 확인
+
+Preferences: Open Settings (JSON) 여기서 편집
+
+"editor.tokenColorCustomizations": {
+  "textMateRules": [
+    {
+      "scope": "variable",
+      "settings": {
+        "foreground": "#FFFF00" // 노란색 (hex 색상 코드)
+      }
+    }
+  ]
+}
+
+"editor.semanticHighlighting.enabled": false 커스텀 색상 적용
+
+"editor.bracketPairColorization.enabled": true, // 괄호 생삭 커스텀 적용
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground2": "#FFE900" // 원하는 노란색으로 변경
+  },
+
+===================== 적용중인 것들
+{
+  "editor.semanticHighlighting.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground2": "#FFE900" // 원하는 노란색으로 변경
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "variable.other.object.js",
+        "settings": {
+          "foreground": "#ffd200"
+        }
+      },
+      {
+        "scope": "support.type.property-name.json.comments",
+        "settings": {
+          "foreground": "#ffd200"
+        }
+      },
+      {
+        "scope": "meta.brace.round.js",
+        "settings": {
+          "foreground": "#ffd200"
+        }
+      },
+      {
+        "scope": "punctuation.definition.block.js",
+        "settings": {
+          "foreground": "#ffd200"
+        }
+      }
+      //   {
+      //   "scope": [
+      //     "punctuation.definition.parameters.begin.js",
+      //     "punctuation.definition.parameters.end.js"
+      //   ],
+      //   "settings": {
+      //     "foreground": "#FFE900"
+      //   }
+      // }
+    ]
+  },
+  "editor.mouseWheelZoom": true,
+  "workbench.startupEditor": "none",
+  "editor.fontSize": 18,
+  "editor.padding.top": 1,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Kanagawa",
+  "editor.guides.bracketPairs": "active",
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "emmet.variables": {
+    "lang": "ko"
+  },
+  "liveServer.settings.CustomBrowser": "chrome",
+  "json.schemas": [],
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#FFFF00", //#006600
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "#111111",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "#",
+      "color": "#6600CC",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "%",
+      "color": "#FF1493",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "&",
+      "color": "#FFE8CC",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "vsintellicode.modify.editor.suggestSelection": "disabled",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editor.empty.hint": "hidden"
+}
