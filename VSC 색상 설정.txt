@@ -25,43 +25,43 @@ Preferences: Open Settings (JSON) 여기서 편집
   "editor.semanticHighlighting.enabled": false,
   "editor.bracketPairColorization.enabled": true,
   "workbench.colorCustomizations": {
-    "editorBracketHighlight.foreground2": "#FFE900" // 원하는 노란색으로 변경
+    "editorBracketHighlight.foreground2": "#FFE900", // 원하는 노란색으로 변경
+    "editorBracketPairGuide.activeBackground2": "#FFE900",
+    "terminal.ansiYellow": "#FFD700", // 노란색 (골드톤)
+    "terminal.ansiBrightYellow": "#FFFF00" // 더 밝은 노란색
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
         "scope": "variable.other.object.js",
         "settings": {
-          "foreground": "#ffd200"
+          "foreground": "#FFD700"
         }
       },
       {
         "scope": "support.type.property-name.json.comments",
         "settings": {
-          "foreground": "#ffd200"
+          "foreground": "#FFD700"
         }
       },
       {
         "scope": "meta.brace.round.js",
         "settings": {
-          "foreground": "#ffd200"
+          "foreground": "#FFD700"
         }
       },
       {
         "scope": "punctuation.definition.block.js",
         "settings": {
-          "foreground": "#ffd200"
+          "foreground": "#FFD700"
+        }
+      },
+      {
+        "scope": "constant.language.boolean",
+        "settings": {
+          "foreground": "#ffdb00"
         }
       }
-      //   {
-      //   "scope": [
-      //     "punctuation.definition.parameters.begin.js",
-      //     "punctuation.definition.parameters.end.js"
-      //   ],
-      //   "settings": {
-      //     "foreground": "#FFE900"
-      //   }
-      // }
     ]
   },
   "editor.mouseWheelZoom": true,
