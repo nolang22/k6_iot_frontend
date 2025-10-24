@@ -2,16 +2,6 @@ Developer: Inspect Editor Tokens and Scopes 스코프 확인
 
 Preferences: Open Settings (JSON) 여기서 편집
 
-"editor.tokenColorCustomizations": {
-  "textMateRules": [
-    {
-      "scope": "variable",
-      "settings": {
-        "foreground": "#FFFF00" // 노란색 (hex 색상 코드)
-      }
-    }
-  ]
-}
 
 "editor.semanticHighlighting.enabled": false 커스텀 색상 적용
 
@@ -19,16 +9,44 @@ Preferences: Open Settings (JSON) 여기서 편집
   "workbench.colorCustomizations": {
     "editorBracketHighlight.foreground2": "#FFE900" // 원하는 노란색으로 변경
   },
+======깃 로컬 색상 ====
+"workbench.colorCustomizations": { 
+    "gitDecoration.modifiedResourceForeground": "#FFA500",   // 수정된 파일 → 오렌지
+    "gitDecoration.untrackedResourceForeground": "#00FF00", // 새로 추가된 파일 → 초록
+    "gitDecoration.deletedResourceForeground": "#FF0000",   // 삭제된 파일 → 빨강
+    "gitDecoration.ignoredResourceForeground": "#808080"    // 무시된 파일 → 회색
+}
+
+"workbench.colorCustomizations": {
+    // Git Gutter (라인 변경 표시)
+    "editorGutter.addedBackground": "#00FF00",       // 추가된 라인 → 초록
+    "editorGutter.modifiedBackground": "#FFA500",    // 수정된 라인 → 오렌지
+    "editorGutter.deletedBackground": "#FF0000",     // 삭제된 라인 → 빨강
+
+    // 선택 사항: 변경된 라인 전체 배경색
+    "diffEditor.insertedTextBackground": "#00FF0044", // 추가 텍스트 반투명 초록
+    "diffEditor.removedTextBackground": "#FF000044"   // 삭제 텍스트 반투명 빨강
+}
+
+
+
 
 ===================== 적용중인 것들
 {
   "editor.semanticHighlighting.enabled": false,
   "editor.bracketPairColorization.enabled": true,
   "workbench.colorCustomizations": {
+    // 괄호 관련
     "editorBracketHighlight.foreground2": "#FFE900", // 원하는 노란색으로 변경
     "editorBracketPairGuide.activeBackground2": "#FFE900",
+    // 터미널 색상
     "terminal.ansiYellow": "#FFD700", // 노란색 (골드톤)
-    "terminal.ansiBrightYellow": "#FFFF00" // 더 밝은 노란색
+    "terminal.ansiBrightYellow": "#FFFF00", // 더 밝은 노란색
+    // 깃허브 관련
+    "gitDecoration.modifiedResourceForeground": "#FFF", // 수정된 파일 → 흰색
+    "editorGutter.modifiedBackground": "#FFF", // 수정된 라인 -> 흰색
+    "gitDecoration.untrackedResourceForeground": "#FFFF00", // 새로 추가된 파일
+    "editorGutter.addedBackground": "#FFFF00" // 추가된 라인
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [

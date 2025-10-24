@@ -44,14 +44,14 @@ type Person = Admin | User;
 
 const man: Person = {
   id: 12,
-  // isAdmin: true,
-  username: "샛노랑",
+  isAdmin: false,
+  // username: "샛노랑",
 };
 
 //? - Person 타입의 객체를 매개변수로 받아 Admin인지 User인지를 구분해 출력하는 함수 identifyPerson을 작성
 
 function identifyPerson(isman: Person) {
-  if ("isAdmin" in isman) {
+  if ("isAdmin" in isman && isman.isAdmin === true) {
     return "Admin";
   } else {
     return "User";

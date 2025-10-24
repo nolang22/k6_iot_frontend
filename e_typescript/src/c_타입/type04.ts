@@ -1,7 +1,7 @@
 // type04.ts
 
 //* == Union 타입 ==
-// :여러 타입 '중' 하나가 될 수 있는 값을 나타내는 방법
+// : 여러 타입 '중' 하나가 될 수 있는 값을 나타내는 방법
 // - 값에 허용된 타입을 두 개 이상으로 지정
 // - OR 연산자 (A 또는 B ... 중에서)
 // - vertical bar 사용 (|)하여 표현
@@ -11,10 +11,10 @@
 
 type VariableType = String | number | boolean | string[];
 
-let value: VariableType = '문자';
+let value: VariableType = "문자";
 value = 123;
 value = true;
-value = ['1', '2', '3']
+value = ["1", "2", "3"];
 // value = [1, 2, 3];
 
 // >> TS는 변수의 타입이 어노테이션 또는 초기화 값으로 지정
@@ -28,16 +28,16 @@ type User = {
 
   name: string;
   address: string;
-}
+};
 
 type Admin = {
   id: string;
   password: string;
 
   department: string; // (회사) 부서
-}
+};
 
-// 위 두가지 타입을 가지는 사이트에서 
+// 위 두가지 타입을 가지는 사이트에서
 //  , 타입 별칭이 union타입인 경우
 type AdminUser = Admin | User;
 
@@ -51,13 +51,13 @@ type AdminUser = Admin | User;
 // }
 
 let nls: AdminUser = {
-  id: 'qwe123',
-  password: 'qwe123123',
+  id: "qwe123",
+  password: "qwe123123",
 
-  department: '교육부',
-  name: '샛노랑',
-  address: '부산진구'
-}
+  department: "교육부",
+  name: "샛노랑",
+  address: "부산진구",
+};
 
 console.log(nls);
 
@@ -68,7 +68,7 @@ console.log(nls);
 
 type Union = string | number;
 
-function getAge (age: Union) {
+function getAge(age: Union) {
   // 나이가 전달될 경우
   // - 숫자: 소수점 자리가 없도록 반올림 + 문자열로 반환 (.toFixed())
   // - 문자ㅣ 대문자로 변환하여 반환 (.toUpperCase())
@@ -77,7 +77,7 @@ function getAge (age: Union) {
   // age.toFixed()
   // age.toUpperCase()
 
-  if (typeof age === 'number') {
+  if (typeof age === "number") {
     age = age.toFixed();
     return age;
   } else {
@@ -87,4 +87,4 @@ function getAge (age: Union) {
 }
 
 console.log(getAge(12.345)); // 12
-console.log(getAge('12 years old')); // 12 YEARS OLD
+console.log(getAge("12 years old")); // 12 YEARS OLD
