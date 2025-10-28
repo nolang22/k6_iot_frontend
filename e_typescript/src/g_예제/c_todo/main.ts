@@ -124,15 +124,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // addButton.addEventListener("keydown", (e) => {
-  //   if (newTaskInput.value.trim() !== "") {
-  //     // 새로운 할 일 생성
-  //     if (e.key === "Enter") {
-  //       taskManager.addTask(newTaskInput.value);
-  //       taskManager.renderTasks("task-list");
+  // 키 다운 추가
+  newTaskInput.addEventListener("keydown", (e) => {
+    if (newTaskInput.value.trim() !== "" && e.key === "Enter") {
+      // 새로운 할 일 생성
+        taskManager.addTask(newTaskInput.value);
+        taskManager.renderTasks("task-list");
 
-  //       newTaskInput.value = "";
-  //     }
-  //   }
-  // });
+        newTaskInput.value = "";
+    }
+  });
 });

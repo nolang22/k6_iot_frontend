@@ -84,14 +84,14 @@ document.addEventListener("DOMContentLoaded", function () {
             newTaskInput.value = "";
         }
     });
-    // addButton.addEventListener("keydown", (e) => {
-    //   if (newTaskInput.value.trim() !== "") {
-    //     // 새로운 할 일 생성
-    //     if (e.key === "Enter") {
-    //       taskManager.addTask(newTaskInput.value);
-    //       taskManager.renderTasks("task-list");
-    //       newTaskInput.value = "";
-    //     }
-    //   }
-    // });
+    newTaskInput.addEventListener("keydown", function (e) {
+        if (newTaskInput.value.trim() !== "") {
+            // 새로운 할 일 생성
+            if (e.key === "Enter") {
+                taskManager.addTask(newTaskInput.value);
+                taskManager.renderTasks("task-list");
+                newTaskInput.value = "";
+            }
+        }
+    });
 });

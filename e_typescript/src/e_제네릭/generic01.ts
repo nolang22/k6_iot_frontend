@@ -6,7 +6,7 @@
 // > 데이터 타입을 미리 지정하지 x, 사용 시점에 데이터 타입을 지정 o
 
 //? 제네릭 필요성
-// : 코드 중복 줄입, 타입 장정성('컴파일' 시점에 타입 체크)
+// : 코드 중복 줄임, 타입 안정성('컴파일' 시점에 타입 체크)
 
 //? 제네렉 기본 문법
 // : 사용할 컴포넌트(변수, 함수, 클래스 등)의 이름 뒤에 <>작성
@@ -82,7 +82,7 @@ class GenericClass<T> {
 // let a = (x: number, y: number) => x + y; // 권장 x
 
 let myGenericClass = new GenericClass<number>(0, (x, y) => x + y);
-console.log(myGenericClass.add(4, 6)); // 
+console.log(myGenericClass.add(4, 6)); // 10
 
 //? 제네릭 함수 구현 예제
 function reverseArray<T>(array: T[]): T[] {

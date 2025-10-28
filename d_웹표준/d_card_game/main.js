@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const completedButton = document.getElementById('completed-button');
 
   //* 색상 배열 정의 (6개 - 임의의 색상 지정 가능)
-  const colors = ["black", "red", "yellow", "green", "blue", "purple"];
+  const colors = ["black", "red", "yellow", "green", "blue",
+                  "purple", "pink", "Cyan", "Aquamarine", "Khaki",
+                  "#23fe91ff", "Coral", "gray", "#feb123ff", "#4834feff" ];
 
   // const colors = [
   //   "#cc3131",
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardContainer.innerHTML = '';
 
     //? 12개 카드를 for 반복문으로 생성하여 HTML 요소로 할당
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 30; i++) {
       cardContainer.innerHTML += `
         <div class="card">
           <div class="card-inner">

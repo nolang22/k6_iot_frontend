@@ -31,50 +31,46 @@ interface TodoItem {
 }
 
 //* 2. 요구 사항 정리 (map & filter 사용)
-
 // 1) 특정 id를 가진 Todo 항목의 task를 편집하는 함수(editTodo)
 function editTodo(todos: TodoItem[], id: number, task: string): TodoItem[] {
-  const changeTask = todos.map(todo => todo.id === id ? { ...todo, task} : todo);
-  
-  return changeTask;
+  const updateTask = todos.map(todo => todo.id === id ? {...todo, task: task} : todo);
 
+  return updateTask;
 }
 
 // 2) 완료된 Todo 항목을 모두 삭제하는 함수(clearCompleted)
-function clearCompleted(todos: TodoItem[], completed: boolean): TodoItem[] {
-  const deleteTodo = todos.filter(todo => todo.completed != completed);
+function clearCompleted(todos: TodoItem[]): TodoItem[] {
+  const clearTodo = todos.filter(todo => !todo.completed)
 
-  return deleteTodo;
+  return clearTodo;
 }
 
 // 3) 모든 Todo 항목을 조회하는 함수(getAllTodos)
-function getAllTodos(todos: TodoItem[]): TodoItem[] {
-  return todos;
-}
 
 // 4) 특정 상태(completed)에 따라 Todo 항목을 필터링하는 함수(filterTodos)
 function filterTodos(todos: TodoItem[], completed: boolean): TodoItem[] {
-  const findCompleted = todos.filter(todo => todo.completed === completed);
+  const findByCompleted = todos.filter(todo => todo.completed === completed);
 
-  return findCompleted;
+  return findByCompleted;
 }
 
 // 5) 특정 id를 가진 Todo 항목의 completed 상태를 토글하는 함수(toggleTodo)
 function toggleTodo(todos: TodoItem[], id: number): TodoItem[] {
-  return todos.map((todo) =>
-    todo.id === id ? { ...todo, completed: !todo.completed } : todo
-  ); // id가 일치하면 completed를 토글, 그렇지 않으면 그대로 반환
+  const changeCompleted = todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo);
+
+  return changeCompleted;
 }
 
+
 // 6) 모든 Todo 항목의 completed 상태를 일괄적으로 설정하는 함수(setAllTodosCompletion)
-function setAllTodosCompletion(todos: TodoItem[], completed: boolean) {
-  const allCompleted = todos.map(todo => completed);
+function setAllTodosCompletion(todos: TodoItem[], completed: boolean): TodoItem[] {
+  const allCompleted = todos.map(todo => ({...todo, completed}));
 
   return allCompleted;
 }
 
 
-//* 4. 프로그램 실행
+//* 3. 프로그램 실행
 
 let todos: TodoItem[] = [
   { id: 1, task: "abc", completed: false },
@@ -88,15 +84,20 @@ let todos: TodoItem[] = [
   { id: 9, task: "yz", completed: false },
 ];
 
-// todos = editTodo(todos, 1, '하하');
+todos = editTodo(todos, 1, '하하');
+todos = editTodo(todos, 3, '스컬');
 
-// console.log(todos);
+todos = clearCompleted(todos);
 
-// todos = clearCompleted(todos, true);
 // todos = filterTodos(todos, true);
 
-todos = toggleTodo(todos, 2);
-console.log("After Toggling Todo with ID 2:", getAllTodos(todos)); // 두 번째 항목의 완료 상태를 토글 후 목록 출력
+// todos = toggleTodo(todos, 1);
+
+// todos = setAllTodosCompletion(todos, false);
+
+
+
+console.log(todos);
 
 
 

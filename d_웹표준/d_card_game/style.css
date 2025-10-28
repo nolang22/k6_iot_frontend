@@ -39,8 +39,8 @@ h1 {
                   (=== 4개의 열을 1의 비율로 설정)  
     행) 가로값 지정: 3개씩 같은 비율로 3번 반복
   */
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 10px;
 }
 

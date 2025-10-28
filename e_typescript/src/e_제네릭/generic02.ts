@@ -14,7 +14,7 @@ interface ILength {
   length: number;
 }
 
-// T의 타입 변수가 반드시! ILength 인터펭스를 포함하는 타입
+// T의 타입 변수가 반드시! ILength 인터페이스를 포함하는 타입
 // '타입변수' extends '반드시포함될타입'
 // > 타입 검증이 타입 변수 지정 시에 결정
 function constraints<T extends ILength>(arg: T): void {
