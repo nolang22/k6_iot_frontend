@@ -136,7 +136,6 @@ const addEventListeners = () => {
   }
 }
 
-
 const init = () => {
   addEventListeners();
   loadPage(currentPage);

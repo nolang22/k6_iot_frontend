@@ -136,84 +136,52 @@ var __generator =
       return { value: op[0] ? op[1] : void 0, done: true };
     }
   };
-var __spreadArray =
-  (this && this.__spreadArray) ||
-  function (to, from, pack) {
-    if (pack || arguments.length === 2)
-      for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-          if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-          ar[i] = from[i];
-        }
-      }
-    return to.concat(ar || Array.prototype.slice.call(from));
-  };
 var _this = this;
-//* 비동기적으로 사용자 데이터를 가져오는 함수
-//& Params
-// - page: 현재 출력되는 페이지
-// - limit: 한 페이지 당 출력되는 사용자 데이터의 개수 (기본값 3)
-// https://jsonplaceholder.typicode.com/users?_page=${page]&_limit=${limit}}
-var fetchUsers = function (page_1) {
-  var args_1 = [];
-  for (var _i = 1; _i < arguments.length; _i++) {
-    args_1[_i - 1] = arguments[_i];
-  }
-  return __awaiter(
-    _this,
-    __spreadArray([page_1], args_1, true),
-    void 0,
-    function (page, limit) {
-      var response, users, e_1;
-      if (limit === void 0) {
-        limit = 3;
+//& 1. 사용자 정보를 외부 API에서 가져오는 비동기 함수
+var fetchUsers = function () {
+  return __awaiter(_this, void 0, void 0, function () {
+    var response, users, e_1;
+    return __generator(this, function (_a) {
+      switch (_a.label) {
+        case 0:
+          _a.trys.push([0, 3, , 4]);
+          return [
+            4 /*yield*/,
+            fetch("https://jsonplaceholder.typicode.com/users"),
+          ];
+        case 1:
+          response = _a.sent();
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return [4 /*yield*/, response.json()];
+        case 2:
+          users = _a.sent();
+          return [2 /*return*/, users];
+        case 3:
+          e_1 = _a.sent();
+          console.error("Fetch error: ", e_1);
+          return [2 /*return*/, []];
+        case 4:
+          return [2 /*return*/];
       }
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            _a.trys.push([0, 3, , 4]);
-            return [
-              4 /*yield*/,
-              fetch(
-                "https://jsonplaceholder.typicode.com/users?_page="
-                  .concat(page, "&_limit=")
-                  .concat(limit, "}")
-              ),
-            ];
-          case 1:
-            response = _a.sent();
-            // _page 값부터 _page * _limit 값까지의 데이터 반환
-            // page1: 1, 2, 3
-            // page2: 4, 5, 6 ...
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return [4 /*yield*/, response.json()];
-          case 2:
-            users = _a.sent();
-            return [2 /*return*/, users];
-          case 3:
-            e_1 = _a.sent();
-            console.error("Fetch error: ", e_1);
-            return [2 /*return*/, []];
-          case 4:
-            return [2 /*return*/];
-        }
-      });
-    }
-  );
+    });
+  });
 };
-//* 각 데이터가 나열될 카드를 동적으로 생성하는 함수
+//& 2. 사용자 정보를 받아 HTML 요소를 생성하는 함수
 var createUserCard = function (user) {
   var userCard = document.createElement("div");
   userCard.className = "user-card";
-  userCard.innerHTML = "\n  <h2>"
-    .concat(user.name, "</h2>\n  <p><strong>Username: </strong>")
-    .concat(user.username, "</p>\n  <p><strong>Email: </strong>")
+  // data-userId="user.id값"; 속성 전달
+  userCard.dataset.userId = user.id.toString();
+  userCard.innerHTML = "\n    <h2>"
+    .concat(user.name, "</h2>\n    <p><strong>Username: </strong>")
+    .concat(user.username, "</p>\n    <p><strong>Email: </strong>")
     .concat(user.email, "</p>\n  ");
   return userCard;
 };
-//* 생성된 카드를 화면에 출력하는 함수
+//& 3. 사용자 정보 배열을 받아 화면에 표시하는 함수
+// : createUserCard에 각 객체 전달
 var displayUsers = function (users) {
   var userList = document.getElementById("user-list");
   if (userList) {
@@ -224,70 +192,76 @@ var displayUsers = function (users) {
     });
   }
 };
-//* 현재 페이지 수를 기본값 1로 설정
-var currentPage = 1;
-var limit = 3;
-var isLastPage = false;
-//* 현재 페이지 정보를수정하는 함수
-var updatePageInfo = function () {
-  var pageInfo = document.getElementById("page-info");
-  if (pageInfo) {
-    pageInfo.textContent = "Page ".concat(currentPage);
+//& 4. 사용자 정보를 받아 모달 창에 표시하는 함수
+var showModal = function (user) {
+  var modal = document.getElementById("user-modal");
+  var modalContent = document.getElementById("modal-user-details");
+  if (modal && modalContent) {
+    modalContent.innerHTML = "\n      <h2>"
+      .concat(user.name, "</h2>\n      <p><strong>Username: </strong>")
+      .concat(user.username, "</p>\n      <p><strong>Email: </strong>")
+      .concat(user.email, "</p>\n      <p><strong>Phone: </strong>")
+      .concat(user.phone, "</p>\n      <p><strong>Website: </strong>")
+      .concat(user.website, "</p>\n    ");
+    modal.style.display = "block"; // 모달 창 표시
   }
 };
-//* 비동기적으로 데이터를 가져와 각 페이지별 카드 생성 + 출력하는 함수
-var loadPage = function (page) {
-  return __awaiter(_this, void 0, void 0, function () {
-    var users;
-    return __generator(this, function (_a) {
-      switch (_a.label) {
-        case 0:
-          return [4 /*yield*/, fetchUsers(page)];
-        case 1:
-          users = _a.sent();
-          if (users.length === 0 && page > 1) {
-            // 빈 페이지 일 경우 이전 페이지로 복귀
-            currentPage--;
-            return [2 /*return*/, loadPage(currentPage)];
-          }
-          displayUsers(users);
-          updatePageInfo();
-          // 다음 페이지 존재 여부는 현재 응답 개수로 판단
-          isLastPage = users.length < limit;
-          updateButtons();
-          return [2 /*return*/];
+//& 5. 사용자 리스트에 이벤트 리스너 추가
+var addEventListeners = function (users) {
+  var userList = document.getElementById("user-list");
+  if (userList) {
+    userList.addEventListener("click", function (e) {
+      //? cf) target VS currentTarget
+      // - target: 이벤트가 처음 발생한 DOM 요소 (클릭이 일어난)
+      // - currentTarget: 발생한 이벤트가 등록된 DOM 요소 (이벤트가 바인딩 된)
+      var target = e.target;
+      // >> 클릭이 발생한 요소는 card 내부의 h2, p가 될 가능성이 존재
+      var userCard = target.closest(".user-card");
+      // : 이벤트가 발생한 요소와 가장 가까운 .user-card 요소를 반환
+      if (userCard) {
+        // dataset: userCard가 가진 data-* 속성들에 접근할 수 있는 DOM 속성
+        // EX) <div data-role="admin" data-userId="1"></div>
+        // parseInt(숫자로 변환 할 데이터, 변환진수)
+        var userId_1 = parseInt(userCard.dataset.userId || "0", 10);
+        var user = users.find(function (user) {
+          return user.id === userId_1;
+        });
+        if (user) {
+          showModal(user);
+        }
       }
     });
-  });
-};
-var updateButtons = function () {
-  var prevPageButton = document.getElementById("prev-page");
-  var nextPageButton = document.getElementById("next-page");
-  if (!prevPageButton && !nextPageButton) return;
-  prevPageButton.disabled = currentPage === 1;
-  nextPageButton.disabled = isLastPage;
-};
-//* addEnentListeners 함수: 버튼 이벤트 리스너 추가
-var addEventListeners = function () {
-  var prevPageButton = document.getElementById("prev-page");
-  var nextPageButton = document.getElementById("next-page");
-  if (prevPageButton && nextPageButton) {
-    prevPageButton.addEventListener("click", function () {
-      if (currentPage > 1) {
-        currentPage--;
-        loadPage(currentPage);
-      }
+  }
+  var modal = document.getElementById("user-modal");
+  var closeModal = document.querySelector(".close");
+  if (modal && closeModal) {
+    closeModal.addEventListener("click", function () {
+      modal.style.display = "none";
     });
-    nextPageButton.addEventListener("click", function () {
-      if (!isLastPage) {
-        currentPage++;
-        loadPage(currentPage);
+    // 브라우저 전체를 DOM 요소로 반환 (브라우저 탭의 전체 영역)
+    // : window
+    // cf) document: window에 로드되는 HTML 문서 그 자체
+    window.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
       }
     });
   }
 };
 var init = function () {
-  addEventListeners();
-  loadPage(currentPage);
+  return __awaiter(_this, void 0, void 0, function () {
+    var users;
+    return __generator(this, function (_a) {
+      switch (_a.label) {
+        case 0:
+          return [4 /*yield*/, fetchUsers()];
+        case 1:
+          users = _a.sent();
+          displayUsers(users);
+          addEventListeners(users);
+          return [2 /*return*/];
+      }
+    });
+  });
 };
 document.addEventListener("DOMContentLoaded", init);

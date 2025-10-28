@@ -178,7 +178,12 @@ Preferences: Open Settings (JSON) 여기서 편집
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "vsintellicode.modify.editor.suggestSelection": "disabled",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
-  "workbench.editor.empty.hint": "hidden"
+  "workbench.editor.empty.hint": "hidden",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

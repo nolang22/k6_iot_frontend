@@ -149,71 +149,48 @@ var __spreadArray =
     return to.concat(ar || Array.prototype.slice.call(from));
   };
 var _this = this;
-//* 비동기적으로 사용자 데이터를 가져오는 함수
-//& Params
-// - page: 현재 출력되는 페이지
-// - limit: 한 페이지 당 출력되는 사용자 데이터의 개수 (기본값 3)
-// https://jsonplaceholder.typicode.com/users?_page=${page]&_limit=${limit}}
-var fetchUsers = function (page_1) {
-  var args_1 = [];
-  for (var _i = 1; _i < arguments.length; _i++) {
-    args_1[_i - 1] = arguments[_i];
-  }
-  return __awaiter(
-    _this,
-    __spreadArray([page_1], args_1, true),
-    void 0,
-    function (page, limit) {
-      var response, users, e_1;
-      if (limit === void 0) {
-        limit = 3;
+//& 3. 사용자 정보를 외부 API에서 가져오는 비동기 함수
+var fetchUsers = function () {
+  return __awaiter(_this, void 0, void 0, function () {
+    var response, users, e_1;
+    return __generator(this, function (_a) {
+      switch (_a.label) {
+        case 0:
+          _a.trys.push([0, 3, , 4]);
+          return [
+            4 /*yield*/,
+            fetch("https://jsonplaceholder.typicode.com/users"),
+          ];
+        case 1:
+          response = _a.sent();
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return [4 /*yield*/, response.json()];
+        case 2:
+          users = _a.sent();
+          return [2 /*return*/, users];
+        case 3:
+          e_1 = _a.sent();
+          console.error("Fetch error: ", e_1);
+          return [2 /*return*/, []];
+        case 4:
+          return [2 /*return*/];
       }
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            _a.trys.push([0, 3, , 4]);
-            return [
-              4 /*yield*/,
-              fetch(
-                "https://jsonplaceholder.typicode.com/users?_page="
-                  .concat(page, "&_limit=")
-                  .concat(limit, "}")
-              ),
-            ];
-          case 1:
-            response = _a.sent();
-            // _page 값부터 _page * _limit 값까지의 데이터 반환
-            // page1: 1, 2, 3
-            // page2: 4, 5, 6 ...
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return [4 /*yield*/, response.json()];
-          case 2:
-            users = _a.sent();
-            return [2 /*return*/, users];
-          case 3:
-            e_1 = _a.sent();
-            console.error("Fetch error: ", e_1);
-            return [2 /*return*/, []];
-          case 4:
-            return [2 /*return*/];
-        }
-      });
-    }
-  );
+    });
+  });
 };
-//* 각 데이터가 나열될 카드를 동적으로 생성하는 함수
+//& 4. 사용자 정보를 받아 HTML 요소를 생성하는 함수
 var createUserCard = function (user) {
   var userCard = document.createElement("div");
-  userCard.className = "user-card";
   userCard.innerHTML = "\n  <h2>"
-    .concat(user.name, "</h2>\n  <p><strong>Username: </strong>")
-    .concat(user.username, "</p>\n  <p><strong>Email: </strong>")
+    .concat(user.name, "</h2>\n  <p>Username: ")
+    .concat(user.username, "</p>\n  <p>Email: ")
     .concat(user.email, "</p>\n  ");
   return userCard;
 };
-//* 생성된 카드를 화면에 출력하는 함수
+//& 5. 사용자 정보 배열을 받아 화면에 표시하는 함수
+// : createUserCard에 각 객체 전달
 var displayUsers = function (users) {
   var userList = document.getElementById("user-list");
   if (userList) {
@@ -224,70 +201,69 @@ var displayUsers = function (users) {
     });
   }
 };
-//* 현재 페이지 수를 기본값 1로 설정
-var currentPage = 1;
-var limit = 3;
-var isLastPage = false;
-//* 현재 페이지 정보를수정하는 함수
-var updatePageInfo = function () {
-  var pageInfo = document.getElementById("page-info");
-  if (pageInfo) {
-    pageInfo.textContent = "Page ".concat(currentPage);
-  }
+//& 6. 사용자 정보 필터링하는 함수
+// : 사용자로부터 입력받은 검색어 사용
+// - 사용자의 name, username, email 중 하나라도 포함된 경우 출력
+var filterUsers = function (users, query) {
+  return users.filter(function (user) {
+    return (
+      user.name.toLowerCase().includes(query.toLowerCase()) ||
+      user.username.toLowerCase().includes(query.toLowerCase()) ||
+      user.email.toLowerCase().includes(query.toLowerCase())
+    );
+  });
 };
-//* 비동기적으로 데이터를 가져와 각 페이지별 카드 생성 + 출력하는 함수
-var loadPage = function (page) {
+//& 7. 사용자 정보 정렬하는 함수
+// : Name 또는 Email 기준으로 정렬 (오름차순)
+var sortUsers = function (users, key) {
+  // map, filter: 배열 메서드, 새로운 배열 반환
+  // cf) sort: 배열 요소 정렬 (+ 콜백 함수, 새로운 배열 반환 X)
+  //qoduf.sort()
+  // : 콜백함수를 받는 배열 요소 정렬 메서드
+  // - 콜백함수의 인자는 비교할 데이터 2가지를 입력
+  // cf) a와 b는 데이터 객체 (User 인터페이스 타입)
+  // a[name].localeCompare(b[name])
+  //? 문자열.localeCompare(문자열)
+  // : 비교 함수
+  // - 문자열을 비교하는 메서드 (알파벳 순 정렬에 유용)
+  // - 반환값
+  //  -1) 기준 문자열이(a)이 비교 문자열(b)보다 앞에 있음
+  //   0) 두 문자열이 같음
+  //   1) 기존 문자열이 비교 문자열보다 뒤에 있음
+  return __spreadArray([], users, true).sort(function (a, b) {
+    return a[key].localeCompare(b[key]);
+  });
+};
+//* 이벤트 리스너 추가 함수
+var addEventListener = function (users) {
+  var searchInput = document.getElementById("search-input");
+  var sortSelect = document.getElementById("sort-select");
+  var dataFilterAndSort = function () {
+    var query = searchInput.value;
+    var filteredUsers = filterUsers(users, query);
+    // 필터링 된 데이터 정렬
+    var sortKey = sortSelect.value;
+    var sortedUsers = sortUsers(filteredUsers, sortKey);
+    displayUsers(sortedUsers);
+  };
+  searchInput.addEventListener("input", dataFilterAndSort);
+  sortSelect.addEventListener("change", dataFilterAndSort);
+};
+//* 초기화 함수
+var init = function () {
   return __awaiter(_this, void 0, void 0, function () {
     var users;
     return __generator(this, function (_a) {
       switch (_a.label) {
         case 0:
-          return [4 /*yield*/, fetchUsers(page)];
+          return [4 /*yield*/, fetchUsers()];
         case 1:
           users = _a.sent();
-          if (users.length === 0 && page > 1) {
-            // 빈 페이지 일 경우 이전 페이지로 복귀
-            currentPage--;
-            return [2 /*return*/, loadPage(currentPage)];
-          }
           displayUsers(users);
-          updatePageInfo();
-          // 다음 페이지 존재 여부는 현재 응답 개수로 판단
-          isLastPage = users.length < limit;
-          updateButtons();
+          addEventListener(users);
           return [2 /*return*/];
       }
     });
   });
-};
-var updateButtons = function () {
-  var prevPageButton = document.getElementById("prev-page");
-  var nextPageButton = document.getElementById("next-page");
-  if (!prevPageButton && !nextPageButton) return;
-  prevPageButton.disabled = currentPage === 1;
-  nextPageButton.disabled = isLastPage;
-};
-//* addEnentListeners 함수: 버튼 이벤트 리스너 추가
-var addEventListeners = function () {
-  var prevPageButton = document.getElementById("prev-page");
-  var nextPageButton = document.getElementById("next-page");
-  if (prevPageButton && nextPageButton) {
-    prevPageButton.addEventListener("click", function () {
-      if (currentPage > 1) {
-        currentPage--;
-        loadPage(currentPage);
-      }
-    });
-    nextPageButton.addEventListener("click", function () {
-      if (!isLastPage) {
-        currentPage++;
-        loadPage(currentPage);
-      }
-    });
-  }
-};
-var init = function () {
-  addEventListeners();
-  loadPage(currentPage);
 };
 document.addEventListener("DOMContentLoaded", init);
