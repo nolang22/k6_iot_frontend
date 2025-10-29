@@ -9,7 +9,7 @@
 //? 리액트 프로젝트 생성
 // npm create vite@latest (프로젝트명첨부)
 
-//! 프로젝트 설정 순서 (터미널에서 대화형으로 진행)
+//* 프로젝트 설정 순서 (터미널에서 대화형으로 진행)
 // Project name: 프로젝트 폴더명 
 // Package name: package.json의 "name" 속성값 으로 지정 (소문자 작성!!)
 // Select a framework: React
@@ -18,7 +18,7 @@
 // >> 명령어 실행 폴더 내에 Project name의 리액트(ts) 프로젝트가 생성
 //    : 프로젝트 폴더로 이동 (cd Project-name입력 )
 
-//! 프로젝트 초기 설정(★프로젝트 진입점에서 실행!!★)
+//* 프로젝트 초기 설정(★프로젝트 진입점에서 실행!!★)
 // package.json에 명시된 의존성 설치 (node_modules 생성)
 // : npm install
 
@@ -61,17 +61,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": { //! npm run 이후의 명령어
+  "scripts": { //* npm run 이후의 명령어
     "dev": "vite", 
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "dependencies": { //! 애플리케이션 동작과 연관된 의존성 라이브러리
+  "dependencies": { //* 애플리케이션 동작과 연관된 의존성 라이브러리
     "react": "^19.0.0", //? 리액트 라이브러리
     "react-dom": "^19.0.0" //? 실제 DOM과 연결해주는 라이브러리
   },
-  "devDependencies": { //! 애플리케이션 동작과는 무관하지만 개발 시 필요한 의존성 라이브러리 
+  "devDependencies": { //* 애플리케이션 동작과는 무관하지만 개발 시 필요한 의존성 라이브러리 
     "@eslint/js": "^9.21.0",
     "@types/react": "^19.0.10", //? TypeScript용 리액트 타입 정의
     "@types/react-dom": "^19.0.4",
@@ -100,10 +100,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react()], //! React JSX를 인식하기 위한 플러그인
+  plugins: [react()], //* React JSX를 인식하기 위한 플러그인
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), //! @ 기호를 src 폴더로 인식
+      '@': path.resolve(__dirname, './src'), //* @ 기호를 src 폴더로 인식
     }
   }
 })
