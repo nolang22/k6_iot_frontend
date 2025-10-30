@@ -4,10 +4,6 @@ import B_React_Counter from '@/pages/a_basic/B_React_Counter'
 
 import cat from '@/assets/Images/cat02.jpg'
 
-/*
-* 컴포넌트(component)
-: 사용자 인터페이스(UI)룰 구축하는 기본 단위 요소
-- 함수형 컴포넌트 사용
 
 /*
 * 컴포넌트(Component)

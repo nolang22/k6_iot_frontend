@@ -46,8 +46,12 @@ Preferences: Open Settings (JSON) 여기서 편집
     "gitDecoration.modifiedResourceForeground": "#FFF", // 수정된 파일 → 흰색
     "editorGutter.modifiedBackground": "#FFF", // 수정된 라인 -> 흰색
     "gitDecoration.untrackedResourceForeground": "#FFFF00", // 새로 추가된 파일
-    "editorGutter.addedBackground": "#FFFF00" // 추가된 라인
+    "editorGutter.addedBackground": "#FFFF00", // 추가된 라인
+
+    // import 관련
+    "editorWarning.foreground": "#FFee00" //경고 표시 밑줄
   },
+
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -76,6 +80,12 @@ Preferences: Open Settings (JSON) 여기서 편집
       },
       {
         "scope": "constant.language.boolean",
+        "settings": {
+          "foreground": "#ffdb00"
+        }
+      },
+      {
+        "scope": "keyword.control.import.tsx",
         "settings": {
           "foreground": "#ffdb00"
         }
