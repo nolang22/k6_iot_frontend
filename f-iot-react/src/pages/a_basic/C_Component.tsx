@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
 // import B_React_Counter from './B_React_Counter'
-import B_React_Counter from '@/pages/a_basic/B_React_Counter'
+import B_React_Counter from "@/pages/a_basic/B_React_Counter";
 
-import cat from '@/assets/Images/cat02.jpg'
-
+import cat from "@/assets/Images/cat02.jpg";
 
 /*
 * 컴포넌트(Component)
@@ -43,7 +42,7 @@ export function Img() {
   //? TSX 코드 내에서 HTML 코드 작성 시
   // : () 소괄호 내에 작성
 
-  //? HTML 코드 내에서 TS 코드 작성 시 
+  //? HTML 코드 내에서 TS 코드 작성 시
   // : {} 중괄호 내에 작성
 
   //? 함수형 컴포넌트(TSX)는 return 시 HTML을 반환
@@ -57,7 +56,7 @@ export function Img() {
       <img src={cat} alt="고양이 이미지" width={300} />
     </div>
     // <div>
-      
+
     // </div>
   );
 }
@@ -67,7 +66,7 @@ export function Img() {
 // TSX)  대소문자 구분 O: <p> !== <P>
 //       : React 컴포넌트
 export function img() {
-  return '이미지 (일반 함수)';
+  return "이미지 (일반 함수)";
 }
 
 function C_Component() {
@@ -82,8 +81,7 @@ function C_Component() {
       <Img />
       <Img />
     </div>
-  )
+  );
 }
 
-export default C_Component
-
+export default C_Component;

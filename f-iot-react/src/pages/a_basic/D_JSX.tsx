@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 /*
 * JSX(TSX)
@@ -44,8 +44,8 @@ function Div() {
       <br />
       <input type="text" />
 
-      <div className='div'></div>
-      <div className='className'></div>
+      <div className="div"></div>
+      <div className="className"></div>
     </>
   );
 }
@@ -56,54 +56,54 @@ function Div() {
 // 1) JSX 태그 내에서 직접적인 데이터 사용
 // 2) '속성=' 바로 다음 사용
 
-
 function D_JSX() {
-  const welcomMsg = '환영합니다.';
+  const welcomMsg = "환영합니다.";
 
   const greeting = (name: string) => `안녕하세요 ${name}님`;
 
   const userInfo = {
-    name: '샛노랑',
-    age: 22
-  }
+    name: "샛노랑",
+    age: 22,
+  };
 
   // 요소의 이벤트로 함수 전달
   const handleClick = (value: string) => {
     console.log(`${value}`);
-  }
+  };
 
   // CSS 객체 (값: 문자열 지정)
   const divStyle = {
-    backgroundColor: 'yellow',
-    color: 'white',
-    padding: '10px'
-  }
+    backgroundColor: "yellow",
+    color: "white",
+    padding: "10px",
+  };
 
   //? JS의 class 문법
   // class name {
   //   constructor(parameters) {
-      
+
   //   }
   // }
-
 
   return (
     <>
       {/* html 요소 */}
       <div>JSX 문법</div>
-      <p style={{ fontSize: '20px', color: 'yellow'}}>안녕하세요</p>
+      <p style={{ fontSize: "20px", color: "yellow" }}>안녕하세요</p>
 
       {/* 컴포넌트 */}
       <Div />
 
       <hr />
       {/* 
-        HRML 내에서 JS 속성 지정
+        HTML 내에서 JS 속성 지정
         : 문자열, 숫자, 기타 JS 표현식 외의 객체도 모두 중괄호 내에서 작성
       */}
       <div>{welcomMsg}</div>
-      <div>{greeting('샛노랑')}</div>
-      <div>이름: {userInfo.name} / 나이: {userInfo.age}</div>
+      <div>{greeting("샛노랑")}</div>
+      <div>
+        이름: {userInfo.name} / 나이: {userInfo.age}
+      </div>
 
       {/* 
         ? 요소에 이벤트 전달시
@@ -111,11 +111,13 @@ function D_JSX() {
         - 익명함수의 형태
         - 해당 이벤트가 발생해야만! 내부 콜백함수가 실행!
       */}
-      <button onClick={() => handleClick('클릭')}>클릭해주요.</button>
+      <button onClick={() => handleClick("클릭")}>클릭해주요.</button>
 
-      <div style={divStyle} id='divElement' className='divClassElement'>div 요소 - style 속성 내부에 스타일 객체를 삽입</div>
+      <div style={divStyle} id="divElement" className="divClassElement">
+        div 요소 - style 속성 내부에 스타일 객체를 삽입
+      </div>
     </>
-  )
+  );
 }
 
-export default D_JSX
+export default D_JSX;
