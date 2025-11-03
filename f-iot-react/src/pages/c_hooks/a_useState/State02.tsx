@@ -54,6 +54,8 @@ function State02() {
 
     setLogin({
       ...login, // id와 password 속성을 모두 가지는 login 객체 (이전의 값 가져오기)
+      // id: '기존값'
+      // password: '기존값'
 
       // 변경하고자 하는 name 키를 가진 value 값을 변경 (해당 필드만 값 업데이트)
       [name]: value, // name.value (X)

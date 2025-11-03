@@ -67,7 +67,7 @@ function State01() {
     //    : 현재(이전, 최신)의 상태값을 기반으로 상태를 업데이트 하는 경우 사용
     // cf) set- 상태 변경 함수 내에서 콜백 함수
     //     setCount(() => {})
-    //     >> 해당 콜백 함수의 인자는 '상태의 최신값!'
+    //     >> 해당 콜백 함수의 인자는 '상태의 최                                             신값!'
     //     >> prev-상태명 (prevName, prevCount, prevUser / previous 이전의)
     setCount(prevCount => prevCount + 1); // 0 + 1 === 1
     setCount(prevCount => prevCount + 1); // 1 + 1 === 2
