@@ -55,20 +55,20 @@ function Index() {
   // 해당 함수형 컴포넌트의 리턴값: HTML코드 요소
   return (
     <div>
-        <h1 style={{ backgroundColor: 'black', color: 'white' }}
-        >== 리액트 라우터 돔 === </h1>
-        <h2 style={h2Style}>1. 중첩(Nested) 라우트 예시</h2>
-        <Routes>
-          {/* /dashboard */}
-          <Route path='dashboard' element={<A_DashBoard />}>
+      <h1 style={{ backgroundColor: 'black', color: 'white' }}
+      >== 리액트 라우터 돔 === </h1>
+      <h2 style={h2Style}>1. 중첩(Nested) 라우트 예시</h2>
+      <Routes>
+        {/* /dashboard */}
+        <Route path='dashboard' element={<A_DashBoard />}>
 
-            {/* /dashboard/stats */}
-            <Route path='stats' element={<A_DashBoardStats />} />
+          {/* /dashboard/stats */}
+          <Route path='stats' element={<A_DashBoardStats />} />
 
-            {/* /dashboard/settings */}
-            <Route path='settings' element={<A_DashBoardSettings />} />
-          </Route>
-        </Routes>
+          {/* /dashboard/settings */}
+          <Route path='settings' element={<A_DashBoardSettings />} />
+        </Route>
+      </Routes>
         
     </div>
   )
