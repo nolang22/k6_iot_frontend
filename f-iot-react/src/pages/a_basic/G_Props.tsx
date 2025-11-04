@@ -19,7 +19,7 @@ import { Wrapper } from './H_Props';
     <a href="이동할 수신처 경로" />
 */
 
-//* 1. 단이 Props 사용
+//* 1. 단일 Props 사용
 function ChildComponent(props: { name: string }) {
   // props.name로 사용
   // : props는 redonly 속성이기 때문에 값의 재할당이 불가!
