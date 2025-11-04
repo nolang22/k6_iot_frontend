@@ -1,0 +1,9 @@
+html, bodu, #root {
+  height: 100%;
+  overflow: auto;
+}
+
+/* 크롬 스크롤바 업애는 방법 */
+::-webkit-scrollbar {
+  display: none;
+}

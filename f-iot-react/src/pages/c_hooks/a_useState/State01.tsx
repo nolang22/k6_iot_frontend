@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 // EX) useEffect: 부수효과(effect) 기능을 여기서 사용한다.
 
 //* == useState == //
-// : React의 함수형 컴포넌트 내부에서 stae(상태)를 관리할 수 있도록 제공하는 (대표적인)기능
+// : React의 함수형 컴포넌트 내부에서 state(상태)를 관리할 수 있도록 제공하는 (대표적인)기능
 
 //? 특징
 //& - '컴포넌트 단위'에서의 상태 관리
@@ -28,10 +28,11 @@ import React, { useState } from 'react'
 
 function State01() {
   //? 기본 구조와 명명 규칙
-  // const [state, setState] = useState(initialValue);
+  // const [state, setState] = useState<T>(initialValue);
 
   //& state         : 현재 상태값(변수)
   //& setState      : 상태를 업데이트하는 함수
+  //& T             : 데이터 타입
   //& initialValue  : 초기값, 초기 상태를 설정 (생략 가능 - undefined 값) 
   // 명명 규칙 : set + 상태명 (name -> setName, count -> setCount, post -> setPost)
 
@@ -67,7 +68,7 @@ function State01() {
     //    : 현재(이전, 최신)의 상태값을 기반으로 상태를 업데이트 하는 경우 사용
     // cf) set- 상태 변경 함수 내에서 콜백 함수
     //     setCount(() => {})
-    //     >> 해당 콜백 함수의 인자는 '상태의 최                                             신값!'
+    //     >> 해당 콜백 함수의 인자는 '상태의 최신값!'
     //     >> prev-상태명 (prevName, prevCount, prevUser / previous 이전의)
     setCount(prevCount => prevCount + 1); // 0 + 1 === 1
     setCount(prevCount => prevCount + 1); // 1 + 1 === 2

@@ -25,7 +25,7 @@ function State03() {
   //% Event Handle
   //& 클릭 이벤트 핸들러
   const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setCount(prevCount => prevCount++); 
+    setCount(prevCount => prevCount + 1); 
     // setCount(count++); - 상수에 대할당 불가!
 
     console.log(e);

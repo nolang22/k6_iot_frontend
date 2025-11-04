@@ -17,7 +17,7 @@ type Post = {
 function Effect02() {
   //? 게시물 상태 관리
   const [posts, setPosts] = useState<Post[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);

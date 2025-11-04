@@ -3,7 +3,7 @@ export const tmp = '';
 //! === 이벤트 핸들러 (Event Handler) ===
 
 //? 1️. React에서 이벤트 핸들러 이름은 보통 어떤 형태인가?
-// A. camelCase
+// A. camelCase   ㅇㅇㅇㅇ
 // B. snake_case
 // C. kebab-case
 // D. PascalCase
@@ -12,12 +12,12 @@ export const tmp = '';
 /*
   <button onClick={handleClick}>Click</button>
 */
-// A. 올바름
+// A. 올바름 ㅇㅇㅇ
 // B. 오류 발생
 
 //? 3. 이벤트 핸들러를 JSX 안에서 직접 호출하면?
-// A. 즉시 실행됨
-// B. 클릭할 때 실행됨
+// A. 즉시 실행됨  
+// B. 클릭할 때 실행됨  ㅇㅇㅇ
 // C. 오류 발생
 // D. 반환값만 실행됨
 
@@ -25,13 +25,13 @@ export const tmp = '';
 /*
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
 */
-// A. 올바름
+// A. 올바름 ㅇㅇㅇㅇㅇㅇ
 // B. 잘못된 타입
 
-//? 5. onClick은 React에서 제공하는 **합성 이벤트(SyntheticEvent)**이다. (O/X)
+//? 5. onClick은 React에서 제공하는 **합성 이벤트(SyntheticEvent)**이다. (O/X) ㄴㄴㄴㄴ
 
-//? 6. 이벤트 핸들러에서 상태를 바꾸는 함수는 보통?
-// A. setState
+//? 6. 이벤트 핸들러에서 상태를 바꾸는 함수는 보통? 
+// A. setState  ㅇㅇㅇㅇㅇㅇㅇ
 // B. useState의 setter
 // C. changeState
 // D. updateEvent
@@ -42,11 +42,11 @@ export const tmp = '';
 */
 // A. handleClick이 즉시 실행됨
 // B. 이벤트 타입 오류
-// C. 문법 오류
+// C. 문법 오류ㅇㅇㅇㅇ
 // D. JSX 구조 오류
 
-//? 8. 이벤트 핸들러를 props로 전달할 수 있다. (O/X)
+//? 8. 이벤트 핸들러를 props로 전달할 수 있다. (O/X)  ㅇㅇㅇㅇㅇ
 
-//? 9. 이벤트 객체는 SyntheticEvent로 래핑되어 있다. (O/X)
+//? 9. 이벤트 객체는 SyntheticEvent로 래핑되어 있다. (O/X) ㄴㄴㄴㄴㄴ
 
-//? 10. React 이벤트 이름은 HTML의 이벤트 이름과 완전히 동일하다. (O/X)
+//? 10. React 이벤트 이름은 HTML의 이벤트 이름과 완전히 동일하다. (O/X) ㄴㄴㄴㄴㄴ

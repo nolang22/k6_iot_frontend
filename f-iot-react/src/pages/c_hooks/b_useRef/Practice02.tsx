@@ -19,14 +19,14 @@ function Practice02() {
   // const messages = Array.from({ length: 15 }, (_, i) => `메시지 ${i + 1}`);
 
   //? messages 값이 갱신될 때마다 콜백 함수 실행
-  // useEffect(() => {
+  useEffect(() => {
     // behavior 속성: 이동 효과를 설정
-    // block 속성: 스크롤 맞춤 설정 (end: 하단 맞춤, nearest: 고정)
-  //   messageEndRef.current?.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "nearest",
-  //   });
-  // }, [messages]);
+    // block 속성: 스크롤 맞춤 설정 (end: 하단 맞춤, nearest: 새로 출력화면으로 )
+    messageEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  }, [messages]);
 
   // 메시지 1 ~ 메시지 15의 유사 배열을 실제 배열로 변환
 

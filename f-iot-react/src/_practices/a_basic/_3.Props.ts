@@ -4,18 +4,18 @@ export const tmp = '';
 
 //? 1. props는 무엇을 전달하기 위한 수단인가?
 // A. 부모 → 자식 컴포넌트로 데이터 전달
-// B. 자식 → 부모로 데이터 전달
+// B. 자식 → 부모로 데이터 전달 ㅇㅇㅇㅇㅇ
 // C. 전역 상태 공유
 // D. 컴포넌트 내부 변수
 
 //? 2. props는 어떤 형태로 컴포넌트에 전달되는가?
-// A. 함수의 매개변수
+// A. 함수의 매개변수 ㅇㅇㅇㅇㅇ
 // B. 전역 변수
 // C. DOM 속성
 // D. Redux store
 
 //? 3. TypeScript에서 props의 타입은 보통 어떻게 지정하나?
-// A. interface 또는 type
+// A. interface 또는 type  ㅇㅇㅇㅇㅇ
 // B. var
 // C. let
 // D. class
@@ -26,15 +26,15 @@ export const tmp = '';
 // const Hello = (props: Props) => <h1>{props.name}</h1>;
 
 
-// A. 올바름
+// A. 올바름 
 // B. 타입 오류
 // C. JSX 문법 오류
-// D. props 접근 오류
+// D. props 접근 오류 ㅇㅇㅇㅇ
 
-//? 5. props는 컴포넌트 내부에서 수정할 수 있다. (O/X)
+//? 5. props는 컴포넌트 내부에서 수정할 수 있다. (O/X) ㄴㄴㄴㄴ
 
 //? 6. props 기본값을 지정하려면?
-// A. defaultProps 사용
+// A. defaultProps 사용  ㅇㅇㅇㅇㅇㅇㅇ
 // B. useState
 // C. constructor
 // D. export default
@@ -44,11 +44,11 @@ export const tmp = '';
 // const Greeting = ({ name }: { name: string }) => <p>Hello {name}</p>;
 
 
-// A. 올바름
+// A. 올바름 ㅇㅇㅇㅇㅇㅇ
 // B. 문법 오류
 
-//? 8. props로 함수를 전달할 수 있다. (O/X)
+//? 8. props로 함수를 전달할 수 있다. (O/X)  ㅇㅇㅇㅇ
 
-//? 9. props로 전달된 값은 자식이 변경할 수 없다. (O/X)
+//? 9. props로 전달된 값은 자식이 변경할 수 없다. (O/X)  ㅇㅇㅇㅇㅇㅇ
 
-//? 10. props는 “읽기 전용(read-only)”이다. (O/X)
+//? 10. props는 “읽기 전용(read-only)”이다. (O/X)  ㅇㅇㅇㅇㅇㅇㅇ

@@ -103,13 +103,40 @@ function Practice01() {
   }, []); // 의존성 배열 빈 배열
 
   //& 30초 마다 자동 새로고침 (폴링)
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const Interval = setInterval(() => {
+      console.log("예약 데이터 자동 새로고침");
+      fetchReservations();
+    }, 30000); // 30초
+
+    // 언마운트 시 타이머 정리 (메모리 누수 방지)
+    return () => {
+      clearInterval(Interval);
+      console.log("폴링 중단 (컴포넌트 언마운트)");
+    };
+  }, []);
 
   //& 예약 상태 변경 핸들러
   const updateReservationState = async (
     id: number,
     newStatus: ReservationStatus
-  ) => {};
+  ) => {
+    try {
+      // 실체 API 환경에서는 HTTP PUT 요청 전송
+      console.log(`PUT /api/v1/reservations/${id} -> ${newStatus}`);
+
+      // UI 즉시 반영
+      setReservations((prev) =>
+        prev.map((reservation) =>
+          reservation.id === id
+            ? { ...reservation, status: newStatus }
+            : reservation
+        )
+      );
+    } catch (e) {
+      console.log("예약 상태 변경 실패", e);
+    }
+  };
 
   //* 4. 로딩 / 에러 / 성공 분기 렌더링
   if (loading) return <p>🔃 예약 정보를 불러오느 중입니다...</p>;
@@ -126,7 +153,7 @@ function Practice01() {
       <h2>🚚 푸드트럭 에약 대시보드</h2>
 
       {/* 예약 데이터가 없을 때 */}
-      {reservations.length === 0 && <p>현재 에약이 없ㅅ브니다.</p>}
+      {reservations.length === 0 && <p>현재 에약이 없습니다.</p>}
 
       <ul>
         {reservations.map((reservation) => (
@@ -139,23 +166,48 @@ function Practice01() {
               borderRadius: "8px",
             }}
           >
-            <h4>{reservation.customer_name} ({reservation.truck_name})</h4>
+            <h4>
+              {reservation.customer_name} ({reservation.truck_name})
+            </h4>
             <p>시간대: {reservation.time_slot}</p>
-            <p>상태: {" "} <b style={{
-              color: reservation.status === 'CONFIRMED' ? 'green' :
-                reservation.status === 'PENDING' ? '#FFea00' : 'red'
-            }}>{reservation.status}</b></p>
+            <p>
+              상태:{" "}
+              <b
+                style={{
+                  color:
+                    reservation.status === "CONFIRMED"
+                      ? "green"
+                      : reservation.status === "PENDING"
+                      ? "#FFea00"
+                      : "red",
+                }}
+              >
+                {reservation.status}
+              </b>
+            </p>
 
-            {/* 상태 변경 버틍 영역 */}
-            <div style={{ marginTop: '8px'}}>
+            {/* 상태 변경 버튼 영역 */}
+            <div style={{ marginTop: "8px" }}>
               {/* CONFIRMED가 아닐 때만 승인 버튼 */}
-              {reservation.status !== 'CONFIRMED' && (
-                <button onClick={() => updateReservationState(reservation.id, "CONFIRMED")}>승인</button>
+              {reservation.status !== "CONFIRMED" && (
+                <button
+                  onClick={() =>
+                    updateReservationState(reservation.id, "CONFIRMED")
+                  }
+                >
+                  승인
+                </button>
               )}
 
               {/* CANCELLED가 아닐 때만 취소 버튼 */}
-              {reservation.status !== 'CANCELLED' && (
-                <button onClick={() => updateReservationState(reservation.id, "CANCELLED")}>취소</button>
+              {reservation.status !== "CANCELLED" && (
+                <button
+                  onClick={() =>
+                    updateReservationState(reservation.id, "CANCELLED")
+                  }
+                >
+                  취소
+                </button>
               )}
             </div>
           </li>

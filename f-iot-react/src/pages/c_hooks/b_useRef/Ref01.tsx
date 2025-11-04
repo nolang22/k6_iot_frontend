@@ -69,7 +69,7 @@ function Ref01() {
       {/* //# 4) 현재의 초기화 값으로 2개의 p태그 모두 0의 값을 가짐 */}
       <h4>현재 텍스트 길이 측정 예제</h4>
       <input type="text" value={text} onChange={handleInputChange} /> //# 5)
-      사용자의 립력
+      사용자의 입력
       {/*//# 15) 이전의 값 유지: 1 출력 */}
       <p>재렌더링 시에도 값이 유지되는 Ref 값: {lengthRef.current}</p>
       {/* 

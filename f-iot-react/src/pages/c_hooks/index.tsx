@@ -13,11 +13,10 @@ import Ref_Practice02 from "./b_useRef/Practice02";
 import Effect01 from "./c_useEffect/Effect01";
 import Effect02 from "./c_useEffect/Effect02";
 import Errfect_Practice01 from "./c_useEffect/Practice01";
+import ToggleSection from "@/components/ToggleSection";
+import UseCallback from "./d_callback_memo/a_UseCallback";
+import UseMemo from "./d_callback_memo/B_UseMemo";
 
-const h2Style = {
-  backgroundColor: "black",
-  color: "yellow",
-};
 
 function Index() {
   return (
@@ -25,24 +24,32 @@ function Index() {
       <h1 style={{ backgroundColor: "black", color: "white" }}>
         == 리액트 Hooks ==={" "}
       </h1>
-      <h2 style={h2Style}>3. 리액트 Hooks -useEffect</h2>
-      <Effect01 /> <hr />
-      <Effect02 /> <hr />
-      <Errfect_Practice01 /> <hr />
+      <ToggleSection title="4. 리액트 Hooks - useCallback & useMemo">
+        <UseCallback /> <hr />
+        <UseMemo /> <hr />
+      </ToggleSection>
 
-      <h2 style={h2Style}>2. 리액트 Hooks -useRef</h2>
-      <Ref01 /> <hr />
-      <Ref02 /> <hr />
-      <Ref_Practice01 /> <hr />
-      <Ref_Practice02 /> <hr />
+      <ToggleSection title="3. 리액트 Hooks - useEffect">
+        <Effect01 /> <hr />
+        <Effect02 /> <hr />
+        <Errfect_Practice01 /> <hr />
+      </ToggleSection>
 
-      <h2 style={h2Style}>리액트 Hooks - useState</h2>
-      <State01 /> <hr />
-      <State02 /> <hr />
-      <State03 /> <hr />
-      <State04 /> <hr />
-      <State05 /> <hr />
-      <State06 /> <hr />
+      <ToggleSection title="2. 리액트 Hooks - useRef">
+        <Ref01 /> <hr />
+        <Ref02 /> <hr />
+        <Ref_Practice01 /> <hr />
+        <Ref_Practice02 /> <hr />
+      </ToggleSection>
+
+      <ToggleSection title="1. 리액트 Hooks - useState">
+        <State01 /> <hr />
+        <State02 /> <hr />
+        <State03 /> <hr />
+        <State04 /> <hr />
+        <State05 /> <hr />
+        <State06 /> <hr />
+      </ToggleSection>
     </div>
   );
 }
