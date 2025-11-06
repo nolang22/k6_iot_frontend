@@ -25,12 +25,39 @@ const users = [
   { name: '호랑이' },
   { name: '사자', message: '리액트 재밌어요!' }
 ]
-
 */
+interface GreetingProps {
+  name: string;
+  message?: string;
+}
+
+const GreetingCard = ({name, message}: GreetingProps) => {
+  return (
+    <div>
+      <li>{name}: {message || "Hellow!"}</li>
+    </div>
+  )
+}
+
+
 
 function Example01() {
+  const users = [
+    { name: "곰", message: "오늘도 파이팅!" },
+    { name: "호랑이" },
+    { name: "사자", message: "리액트 재밌어요!" },
+  ];
+
   return (
-    <div>Example</div>
+    <div>
+      {users.map((user, index) => (
+        <GreetingCard 
+          key={index}
+          name={user.name}
+          message={user.message}
+        />
+      ))}
+    </div>
   )
 }
 

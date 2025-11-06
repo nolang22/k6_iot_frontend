@@ -1,6 +1,7 @@
 import SearchBox from "@/components/searchBox";
 import SearchResults from "@/components/searchResults";
 import { useSearch } from "@/hooks/useSearch";
+import './SearchApp.css';
 import React from "react";
 
 //* 웹사이트 검색 기능
@@ -29,7 +30,7 @@ function SearchApp() {
     useSearch("");
 
   return (
-    <div>
+    <div className='search-container'>
       {/* 검색창 컴포넌트 */}
       <SearchBox
         query={query}

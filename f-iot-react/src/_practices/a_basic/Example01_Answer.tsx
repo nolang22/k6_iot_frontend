@@ -15,7 +15,7 @@ const GreetingCard: React.FC<GreetingProps> = ({ name, message }) => {
   );
 };
 
-function Example_Answer() {
+function Example01_Answer() {
   const users = [
     { name: "곰", message: "오늘도 화이팅!" },
     { name: "호랑이" },
@@ -33,4 +33,4 @@ function Example_Answer() {
   )
 }
 
-export default Example_Answer;
+export default Example01_Answer;
