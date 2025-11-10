@@ -1,4 +1,5 @@
 import { useCount } from '@/hooks/useCount';
+import { useAuthStore } from '@/stores/auth.store';
 import React from 'react'
 import { create } from 'zustand';
 
@@ -60,15 +61,24 @@ export const useCountStore = create<CountState>(set => ({
 }));
 
 function B_Zustand() {
+  //? 2. store 호출
+  // : 구조 분해 할당을 사용하여
+  //    전역 상태 변수값, 전역 상태 설정 함수 할당
   const { count, increment, decrement } = useCountStore();
+  const { user, logout } = useAuthStore();
 
   return (
     <div>
       <p>Count: {count}</p>
       <button onClick={increment}>증가</button>
       <button onClick={decrement}>감소</button>
+      {user && (
+        <p>
+          {user.loginId}님 환영합니다.
+          <button onClick={logout}>로그아웃</button>
+        </p>
+      )}
     </div>
-
   )
 }
 
