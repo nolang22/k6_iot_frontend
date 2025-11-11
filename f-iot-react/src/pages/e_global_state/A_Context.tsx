@@ -21,6 +21,7 @@ import React, { Children, createContext, useContext, useState } from 'react'
 //& Context API (React 기본, 내장 API)
 // - 장점) 내장, 간단한 공유용도 적합(테마, auth)
 // - 단점) 빈번한 변경 시 리렌더 문제
+
 //& 2. zustand
 // - 장점) 간결한 API, 부분 구독, 미들웨어, 타입스크립트 친화적
 

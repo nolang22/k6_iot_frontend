@@ -2,7 +2,9 @@
 // : acios.create() 설정 파일
 // - 반복되는 요청 설정(URL, header 등)을 한 번에 정의하기 위해 axios 인스턴스 생성
 
+import { useAuthStore } from "@/stores/auth.store";
 import axios, { type InternalAxiosRequestConfig } from "axios";
+import { refreshAccessToken } from "./authApi";
 
 const API_BASE =
   import.meta.env.VITE_API_BASE || "http://localhost:8080/api/v1";
@@ -30,10 +32,12 @@ export const privateAPi = axios.create({
   withCredentials: true,
 });
 
-//& 인터셉터 설정 (privateApi 만)
+//& 요청 인터셉터 설정 (privateApi 만)
 privateAPi.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem("accessToken");
+    // AccessToken 저장 위치: zustand store
+    const token = useAuthStore.getState().accessToken;
+
     if (token && config.headers) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
@@ -44,10 +48,35 @@ privateAPi.interceptors.request.use(
 
 //& 응답 인터셉터 설정
 privateAPi.interceptors.response.use(
-  (response) => response,
+  // 정상 응답일 경우 그대로 반환
+  response => response,
+  // 에러 발생 시 
   async (e) => {
-    console.error("Axios Response Error: ", e);
-    alert("서버 요쳥 중 오류가 발생하였습니다.");
+    //? e.config
+    // : Axios는 각 요청의 설정값(config)을 객체로 보관
+    // - 실패한 요청의 원본 설정
+    const originalRequest = e.config;
+
+    // 401 Unauthorized 발생 + 아직 재시도(_retry) 안 했을 경우
+    if (e.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true; // 재시도된 요청인지 판별
+      try {
+        const newToken = await refreshAccessToken();
+        const { setAccessToken } = useAuthStore.getState();
+        setAccessToken(newToken);
+
+        // 실패했던 요청의 Authorization 헤더를 새 토큰으로 교체
+        originalRequest.headers["Authorization"] = `Bearer ${newToken}`;
+
+        // 같은 요청을 다시 시도 (토큰 갱신 후 재전송)
+        return privateAPi(originalRequest);
+        
+      } catch {
+        // 토큰 재발급 실패 시 -> 강제 로그아웃 처리
+        useAuthStore.getState().logout();
+      }
+    }
+
     return Promise.reject(e);
   }
 );
