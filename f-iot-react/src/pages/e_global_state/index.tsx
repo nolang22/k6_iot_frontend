@@ -1,8 +1,11 @@
-import React from 'react'
-import A_Context from './A_Context'
-import ToggleSection from '@/components/ToggleSection'
-import B_Zustand from './B_Zustand'
-import SignIn from './SignIn'
+import React from "react";
+import A_Context from "./A_Context";
+import ToggleSection from "@/components/ToggleSection";
+import B_Zustand from "./B_Zustand";
+import SignIn from "./SignIn";
+import GlobalData from "./GlobalData";
+import TruckResernationList from "../../components/TruckReservationList";
+import TruckDetailPage from "./TruckDetailPage";
 
 function Index() {
   return (
@@ -22,8 +25,16 @@ function Index() {
       <ToggleSection title="3. SignIn 페이지">
         <SignIn /> <hr />
       </ToggleSection>
+
+      <ToggleSection title="4. zustand 연습(golbal-data)">
+        <GlobalData /> <hr />
+      </ToggleSection>
+
+      <ToggleSection title="5. zustand 연습(reservation)">
+        <TruckDetailPage /> <hr />
+      </ToggleSection>
     </div>
-  )
+  );
 }
 
-export default Index
+export default Index;

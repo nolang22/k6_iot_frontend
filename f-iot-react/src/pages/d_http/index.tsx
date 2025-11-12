@@ -7,7 +7,7 @@ function Index() {
   return (
     <div>
       <h1 style={{ backgroundColor: "black", color: "white" }}>
-        == 리액트 Hooks ==={" "}
+        == 리액트 HTTP ==={" "}
       </h1>
 
       <ToggleSection title="1. Axios">
