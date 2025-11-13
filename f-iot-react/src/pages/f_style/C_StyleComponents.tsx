@@ -119,7 +119,7 @@ const LoginButton = styled.button`
   color: white;
   border: none;
   border-radius: 0.85rem;
-  transition: background-color 2s;
+  transition: background 2s;
 
   &:hover {
     background-color: #555;
