@@ -64,7 +64,8 @@ function TruckReservationList() {
                 <div className="reuservation-status">{reservation.status}</div>
               </div>
               <div className="reservation-user">예약자: {reservation.userId}</div>
-              <div className="reservation-date muted" style={{marginTop: 6}}>예약자: {reservation.date}</div>     
+              <div className="reservation-date muted" style={{marginTop: 6}}>예약자:          
+                {reservation.date}</div>     
             </li>
           ))}
         </ul>
